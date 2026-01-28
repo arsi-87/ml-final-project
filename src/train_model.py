@@ -12,6 +12,9 @@ df.columns = df.columns.str.strip()
 #Uklanjam _ iz imena kolone 'Product Code'
 df.rename(columns={'_Product Code': 'Product Code'}, inplace=True)
 
+#Brisemo nedostajuce vrednosti
+df = df.dropna()
+
 #Pretvaramo sve vrednosti u kolni u mala slova
 df['Category Label'] = (df['Category Label'].astype(str).str.strip())
 
@@ -28,7 +31,7 @@ y = df['Category Label']
 
 pipeline = Pipeline([
       ("tfidf", TfidfVectorizer()),
-      ("Classifier", LinearSVC)
+      ("Classifier", LinearSVC())
 ])
 
 #Treniramo model nad svim podacima
