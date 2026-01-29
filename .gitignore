@@ -1,3 +1,7 @@
 #Ignorisemo sve .pkl fajlove
 *.pkl
+<<<<<<< HEAD
 /model
+=======
+/mode
+>>>>>>> db252b023b205e8bf88cd5b6d5315225a2848759
