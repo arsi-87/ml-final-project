@@ -14,4 +14,4 @@ while True:
         break
     
     prediction = model.predict([title])[0]
-    print(f"Predicted sentiment: {prediction}\n" + "-" * 40)
+    print(f"Predicted category: {prediction}\n" + "-" * 40)

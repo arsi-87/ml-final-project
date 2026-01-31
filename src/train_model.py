@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.pipeline import Pipeline
-from sklearn.svm import LinearSVC
+from sklearn.linear_model import LogisticRegression
 import joblib
 
 df = pd.read_csv("data/products.csv")
@@ -15,7 +15,11 @@ df.rename(columns={'_Product Code': 'Product Code'}, inplace=True)
 #Brisemo nedostajuce vrednosti
 df = df.dropna()
 
-#Pretvaramo sve vrednosti u kolni u mala slova
+#Uklanjamo sve kolone koje nisu potrebne za modelovanje
+df = df.drop(columns=['product ID', 'Merchant ID', 'Product Code', 'Number_of_Views', 'Merchant Rating', 'Listing Date'])
+
+
+#Uklanjamo sve razmake
 df['Category Label'] = (df['Category Label'].astype(str).str.strip())
 
 #Standardizujemo kolnu
@@ -31,7 +35,7 @@ y = df['Category Label']
 
 pipeline = Pipeline([
       ("tfidf", TfidfVectorizer()),
-      ("Classifier", LinearSVC())
+      ("Classifier", LogisticRegression())
 ])
 
 #Treniramo model nad svim podacima
