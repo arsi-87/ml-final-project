@@ -21,9 +21,6 @@ Zadatak modela je da nauci obrazac iz podataka i pravilno klasifikuje nove, nepo
 │ ├── predict_category.py # Skript za testiranje modela
 │ ├── train_model.py # Script za treniranje i cuvanje modela
 │
-├── model/
-│ ├── category_model.pkl
-│
 ├── notebook/
 │   ├── AS_ML_Final_project.ipynb # EDA i procesiranje
 │
